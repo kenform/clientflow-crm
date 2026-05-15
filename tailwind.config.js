@@ -9,11 +9,6 @@ export default {
         soft: '#f8fafc',
         panel: '#ffffff',
         line: '#e2e8f0',
-        blue: '#2563eb',
-        violet: '#7c3aed',
-        cyan: '#06b6d4',
-        green: '#16a34a',
-        amber: '#d97706'
       },
       boxShadow: {
         soft: '0 20px 70px rgba(15, 23, 42, .08)',
