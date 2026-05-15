@@ -35,3 +35,43 @@ body {
 .status-dot {
   box-shadow: 0 0 0 6px rgba(37,99,235,.08);
 }
+
+
+/* CLIENTFLOW_MOBILE_PERF_PATCH */
+html, body, #root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+button, a, input, select {
+  touch-action: manipulation;
+}
+
+button, a {
+  min-height: 44px;
+}
+
+img, svg {
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  body {
+    background:
+      radial-gradient(circle at 12% 8%, rgba(37, 99, 235, .08), transparent 24%),
+      linear-gradient(180deg, #f8fafc 0%, #eef4ff 52%, #f8fafc 100%);
+  }
+
+  .card-hover:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

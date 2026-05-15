@@ -32,7 +32,7 @@ function Metric({ label, value, delta, accent }: { label: string; value: string;
       <div className={`h-2 w-14 rounded-full ${accent}`} />
       <p className="mt-5 text-sm font-bold text-muted">{label}</p>
       <div className="mt-4 flex items-end justify-between gap-4">
-        <p className="text-3xl font-black text-ink">{value}</p>
+        <p className="text-xl font-black text-ink sm:text-2xl sm:text-3xl">{value}</p>
         <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">{delta}</span>
       </div>
     </article>
@@ -52,9 +52,9 @@ function App() {
   }, [query, stage])
 
   return (
-    <main className="min-h-screen px-4 py-4 text-ink lg:p-6">
-      <div className="mx-auto grid max-w-[1540px] gap-5 lg:grid-cols-[286px_1fr]">
-        <aside className="rounded-[2rem] border border-line bg-panel p-5 shadow-soft lg:sticky lg:top-6 lg:h-[calc(100vh-48px)]">
+    <main className="min-h-screen overflow-x-hidden px-3 py-3 text-ink sm:px-4 sm:py-4 lg:p-6">
+      <div className="mx-auto grid max-w-[1540px] gap-4 lg:gap-5 lg:grid-cols-[286px_1fr]">
+        <aside className="rounded-[1.5rem] border border-line bg-panel p-4 shadow-soft sm:rounded-[2rem] sm:p-5 lg:sticky lg:top-6 lg:h-[calc(100vh-48px)]">
           <div className="flex items-center gap-3">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 text-lg font-black text-white shadow-card">CF</div>
             <div>
@@ -63,16 +63,16 @@ function App() {
             </div>
           </div>
 
-          <nav className="mt-8 space-y-2">
+          <nav className="mt-5 grid grid-cols-2 gap-2 sm:mt-8 sm:block sm:space-y-2">
             {['Dashboard', 'Leads', 'Pipeline', 'AI Summary', 'Tasks', 'Settings'].map((item, index) => (
-              <a key={item} href="#" className={`flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-black transition ${index === 0 ? 'bg-blue-600 text-white shadow-card' : 'text-muted hover:bg-slate-100 hover:text-ink'}`}>
+              <a key={item} href="#" className={`flex items-center justify-between rounded-2xl px-3 py-3 text-xs sm:px-4 sm:text-sm font-black transition ${index === 0 ? 'bg-blue-600 text-white shadow-card' : 'text-muted hover:bg-slate-100 hover:text-ink'}`}>
                 <span>{item}</span>
                 {index === 1 && <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs">29</span>}
               </a>
             ))}
           </nav>
 
-          <div className="mt-8 rounded-[1.5rem] bg-gradient-to-br from-blue-600 to-violet-600 p-5 text-white shadow-card">
+          <div className="mt-5 rounded-[1.5rem] sm:mt-8 bg-gradient-to-br from-blue-600 to-violet-600 p-5 text-white shadow-card">
             <p className="text-sm font-black uppercase tracking-[0.18em] opacity-80">AI assistant</p>
             <p className="mt-4 text-2xl font-black">12 заявок разобраны</p>
             <p className="mt-3 text-sm leading-6 text-white/80">AI выделил бюджет, намерение, срочность и следующий шаг для менеджера.</p>
@@ -88,25 +88,25 @@ function App() {
         </aside>
 
         <section className="space-y-5">
-          <header className="rounded-[2rem] border border-line bg-panel p-6 shadow-soft">
+          <header className="rounded-[1.5rem] border border-line bg-panel p-4 shadow-soft sm:rounded-[2rem] sm:p-6">
             <div className="flex flex-col gap-6 xl:flex-row xl:items-center xl:justify-between">
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-600">website · telegram · ai leads</p>
-                <h1 className="mt-4 max-w-5xl text-4xl font-black tracking-tight text-ink sm:text-5xl">
+                <h1 className="mt-4 max-w-5xl text-3xl font-black tracking-tight text-ink sm:text-5xl">
                   CRM-панель для заявок, которые приходят с сайта и AI-помощника.
                 </h1>
-                <p className="mt-4 max-w-3xl text-lg leading-8 text-muted">
+                <p className="mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
                   ClientFlow показывает, как бизнес может обрабатывать заявки из лендинга, Telegram и AI-чата: статусы, приоритеты, summary, задачи и pipeline в одном интерфейсе.
                 </p>
               </div>
 
-              <div className="grid min-w-[300px] grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 sm:min-w-[300px] gap-3">
                 <div className="rounded-3xl bg-soft p-5">
-                  <p className="text-3xl font-black text-ink">29</p>
+                  <p className="text-xl font-black text-ink sm:text-2xl sm:text-3xl">29</p>
                   <p className="mt-1 text-sm font-bold text-muted">новых лидов</p>
                 </div>
                 <div className="rounded-3xl bg-blue-50 p-5">
-                  <p className="text-3xl font-black text-blue-700">8</p>
+                  <p className="text-2xl font-black text-blue-700 sm:text-3xl">8</p>
                   <p className="mt-1 text-sm font-bold text-muted">горячих</p>
                 </div>
               </div>
@@ -121,14 +121,14 @@ function App() {
           </div>
 
           <div className="grid gap-5 xl:grid-cols-[1.25fr_.75fr]">
-            <section className="rounded-[2rem] border border-line bg-panel p-6 shadow-soft">
+            <section className="rounded-[1.5rem] border border-line bg-panel p-4 shadow-soft sm:rounded-[2rem] sm:p-6">
               <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
                 <div>
                   <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-600">lead inbox</p>
-                  <h2 className="mt-2 text-2xl font-black text-ink">Новые заявки</h2>
+                  <h2 className="mt-2 text-xl font-black text-ink sm:text-2xl">Новые заявки</h2>
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Поиск по клиенту, проекту, источнику..." className="min-w-[260px] rounded-2xl border border-line bg-soft px-4 py-3 text-sm font-bold outline-none transition focus:border-blue-300 focus:bg-white" />
+                  <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Поиск по клиенту, проекту, источнику..." className="w-full rounded-2xl sm:min-w-[260px] border border-line bg-soft px-4 py-3 text-sm font-bold outline-none transition focus:border-blue-300 focus:bg-white" />
                   <select value={stage} onChange={(e) => setStage(e.target.value)} className="rounded-2xl border border-line bg-soft px-4 py-3 text-sm font-black outline-none">
                     {['All', 'New', 'Qualified', 'Estimate', 'Meeting'].map((item) => <option key={item}>{item}</option>)}
                   </select>
@@ -141,14 +141,14 @@ function App() {
                     <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                       <div className="flex-1">
                         <div className="flex flex-wrap items-center gap-3">
-                          <h3 className="text-xl font-black text-ink">{lead.name}</h3>
+                          <h3 className="break-words text-lg font-black text-ink sm:text-xl">{lead.name}</h3>
                           <span className={`rounded-full px-3 py-1 text-xs font-black ${lead.color}`}>{lead.status}</span>
                           <span className="rounded-full bg-white px-3 py-1 text-xs font-black text-muted">score {lead.score}</span>
                         </div>
-                        <p className="mt-2 text-sm font-bold text-muted">{lead.source} · {lead.project} · {lead.budget}</p>
+                        <p className="mt-2 break-words text-sm font-bold text-muted">{lead.source} · {lead.project} · {lead.budget}</p>
                         <div className="mt-4 rounded-2xl border border-blue-100 bg-white p-4">
                           <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-600">AI summary</p>
-                          <p className="mt-2 text-sm leading-6 text-muted">{lead.ai}</p>
+                          <p className="mt-2 break-words text-sm leading-6 text-muted">{lead.ai}</p>
                         </div>
                       </div>
                       <div className="flex gap-2 lg:flex-col">
@@ -162,7 +162,7 @@ function App() {
             </section>
 
             <section className="space-y-5">
-              <div className="rounded-[2rem] border border-line bg-panel p-6 shadow-soft">
+              <div className="rounded-[1.5rem] border border-line bg-panel p-4 shadow-soft sm:rounded-[2rem] sm:p-6">
                 <p className="text-sm font-black uppercase tracking-[0.22em] text-violet-600">lead analytics</p>
                 <div className="mt-6 flex h-48 items-end gap-2 rounded-3xl bg-soft p-4">
                   {chart.map((value, index) => (
@@ -176,13 +176,13 @@ function App() {
                 </div>
               </div>
 
-              <div className="rounded-[2rem] border border-line bg-panel p-6 shadow-soft">
+              <div className="rounded-[1.5rem] border border-line bg-panel p-4 shadow-soft sm:rounded-[2rem] sm:p-6">
                 <p className="text-sm font-black uppercase tracking-[0.22em] text-cyan-600">pipeline</p>
                 <div className="mt-6 space-y-3">
                   {pipeline.map(([name, count, cls]) => (
                     <div key={name} className="flex items-center justify-between rounded-2xl bg-soft p-4">
                       <span className={`rounded-full px-3 py-1 text-xs font-black ${cls}`}>{name}</span>
-                      <span className="text-xl font-black text-ink">{count}</span>
+                      <span className="break-words text-lg font-black text-ink sm:text-xl">{count}</span>
                     </div>
                   ))}
                 </div>
@@ -191,9 +191,9 @@ function App() {
           </div>
 
           <div className="grid gap-5 xl:grid-cols-[.9fr_1.1fr]">
-            <section className="rounded-[2rem] border border-line bg-panel p-6 shadow-soft">
+            <section className="rounded-[1.5rem] border border-line bg-panel p-4 shadow-soft sm:rounded-[2rem] sm:p-6">
               <p className="text-sm font-black uppercase tracking-[0.22em] text-violet-600">AI brief builder</p>
-              <h2 className="mt-3 text-2xl font-black text-ink">Автоматически собирает вводные по заявке.</h2>
+              <h2 className="mt-3 text-xl font-black text-ink sm:text-2xl">Автоматически собирает вводные по заявке.</h2>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 {['Источник: Telegram', 'Бюджет: 2.5–5 млн ₽', 'Сроки: 3–6 месяцев', 'Следующий шаг: созвон'].map((item) => (
                   <div key={item} className="rounded-2xl border border-line bg-soft p-4 text-sm font-black text-ink">{item}</div>
@@ -205,7 +205,7 @@ function App() {
               </div>
             </section>
 
-            <section className="rounded-[2rem] border border-line bg-panel p-6 shadow-soft">
+            <section className="rounded-[1.5rem] border border-line bg-panel p-4 shadow-soft sm:rounded-[2rem] sm:p-6">
               <p className="text-sm font-black uppercase tracking-[0.22em] text-amber-600">activity feed</p>
               <div className="mt-6 space-y-3">
                 {activity.map(([type, text, time]) => (
@@ -230,7 +230,7 @@ function App() {
               ['Telegram handoff', 'Менеджер получает клиента и контекст без ручного копирования.'],
               ['AI qualification', 'AI выделяет бюджет, сроки, намерение и следующий лучший шаг.'],
             ].map(([title, text]) => (
-              <article key={title} className="card-hover rounded-[2rem] border border-line bg-panel p-6 shadow-soft">
+              <article key={title} className="card-hover rounded-[1.5rem] border border-line bg-panel p-4 shadow-soft sm:rounded-[2rem] sm:p-6">
                 <div className="status-dot h-3 w-3 rounded-full bg-blue-600" />
                 <h3 className="mt-8 text-xl font-black text-ink">{title}</h3>
                 <p className="mt-4 text-sm leading-7 text-muted">{text}</p>
